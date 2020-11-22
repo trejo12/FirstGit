@@ -5,25 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
-
-    <div id="app"></div>
-    <!-- <header><h1>header</h1></header>
-    <div class="list-blog">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Ab reiciendis et aspernatur fuga suscipit quidem harum sequi nesciunt veniam praesentium.
-        </p>
+<body style="padding: 15px" class="row">
+    <div id="app-1">
+        <h4>v-for</h4>
+        <ol>
+          <li v-for="todo in todos">
+            {{ todo.text }}
+          </li>
+        </ol>
     </div>
+
     <div id="app">
-        <p>@@</p>
-        <p>{{title}}</p>
-        <p>{{say('World')}}</p>
+        <h4>v-bind</h4>
+        <a v-bind:class="text" v-bind:href="url" v-bind:target = "target">{{title}}</a>
+        <h5>{{format()}}</h5>
     </div>
-    <footer><h1>Footer</h1></footer> -->
-    <p>ádsad</p>
 
+    <div id="app-2">
+        <h4>v-if</h4>
+        <span v-if="seen">Thoắt ẩn thoắt hiện</span>
+      </div>
+   
+    <div id="app-3">
+        <span v-if="seen"  v-model="index">{{index}}</span>
+        <p></p>
+    </div>
+
+    <div id="app-5">
+        <h4>v-for</h4>
+        <ol>
+          <li v-for="todo in todos">
+            {{ todo.text }}
+          </li>
+        </ol>
+      </div>
+
+    <div id="app-6">
+        <h4>Component</h4>
+        <ol>
+            <todo-item
+              v-for="item in groceryList"
+              v-bind:todo="item"
+              v-bind:key="item.id"
+            ></todo-item>
+        </ol>
+    </div>
+
+    <div id="app-7">
+        <child></child>
+    </div>
+    
+    <div id="app-8">
+        <h4>v-on</h4>
+        <p>Count : {{counter}}</p>
+        <button v-on:click="handleClick(5)" class="btn btn-primary">Click</button>
+    </div>
+
+    <div id="app-9">
+        <h4>Watched</h4>
+        <p>Time     : "{{ now }}"</p>
+        <p>Thông điệp ban đầu: "{{ message }}"</p>
+        <p>Thông điệp bị đảo ngược bằng tính toán  "{{ reversedMessage }}"</p>
+    </div>
 </body>
     <script src="main.js"></script>
 </html>
+
+
+
+
+<style lang="scss">
+    h4{
+        color : orange;
+    }
+</style>
+<script>
+    $(document).ready(function(){
+        $("div").addClass("col-md-6");
+  });
+
+</script>
